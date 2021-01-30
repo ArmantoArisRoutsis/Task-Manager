@@ -28,12 +28,21 @@ export const createTask = async (req,res)=>{
 export const updateTask = async (req,res)=>{
     const {id} = req.params;
     const task = req.body;
-    console.log(id)
-    console.log(req.body)
 
     if(!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send("No post with such id");
 
     const updatedTask = await TaskModel.findByIdAndUpdate(id,task, {new:true})
 
     res.json(updateTask)
+}
+
+export const deleteTask = async (req,res)=>{
+    const {id} = req.params;
+    console.log(id)
+
+    if(!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send("No post with such id");
+
+    await TaskModel.findByIdAndRemove(id)
+
+    res.json({message:"Task deleted"})
 }

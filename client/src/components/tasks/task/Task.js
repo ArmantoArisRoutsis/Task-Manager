@@ -1,15 +1,15 @@
-import React from 'react'
+import React,{useState} from 'react'
+import "./Task.css"
 
-const Task = () => {
+import HighlightOffIcon from '@material-ui/icons/HighlightOff';
+
+
+const Task = ({task, handleRemove}) => {
+
     return (
-        <div>
-            Do this<br/>
-            and the<br/>
-            taht and then<br/>
-            ethisf<br/><br/><br/><br/><br/><br/>
-            theauf ufehf
-            hguwr
-            gwru
+        <div className="task-box">
+            <button onClick={()=>handleRemove(task)}><HighlightOffIcon/></button>
+            <p> {task}</p>
         </div>
     )
 }

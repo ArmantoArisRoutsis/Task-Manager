@@ -8,15 +8,19 @@ const Navbar = ({showModal, setShowModal, setDisplayedTask}) => {
 
     const tasks = useSelector(state => state.tasks)
 
+    const createNewTask =(e)=>{
+        e.preventDefault();
+        setShowModal(true)
+    }
 
     return (
         <>
             <div className="nav-container">
-            {console.log(tasks)}
-                <ul>
+                <h1>Task Manager</h1>
+                {tasks.length&&<ul>
                     {tasks.map(task=>(<a onClick={()=>setDisplayedTask(task)}> <li>{task.title}</li></a>))}
-                </ul>
-                <button onClick={()=>setShowModal(true)}>Create A new Post</button>
+                </ul>}
+                <a className="create-new-task-btn" href="" onClick={createNewTask}>Create A New Task</a>
             </div>
             {showModal&&<Modal setShowModal={setShowModal}/>}
         </>

@@ -1,17 +1,33 @@
-import React from 'react'
-import {useSelector} from "react-redux"
+import React,{useState} from 'react'
 import Task from "./task/Task"
+
+import {useDispatch} from "react-redux"
+import {updateTask} from "../../actions/tasks"
+
+
 
 import "./Tasks.css"
 
-const Tasks = () => {
+const Tasks = ({displayedTask,setDisplayedTask, handleDelete}) => {
+    const dispatch = useDispatch()
 
-    const tasks = useSelector(state => state.tasks)
+    
+    const handleRemove =(todo)=>{
+        const newList = displayedTask.todos.filter(each=>each!==todo)
+
+        console.log(newList)
+        setDisplayedTask({...displayedTask,todos:newList})
+        dispatch(updateTask(displayedTask))
+    }
+
     return (
         <article className="main-tasks-container">
-            <h2>Title</h2>
-            <h4>20 may 2020</h4>
+            <h2>{displayedTask.title}</h2>
+            <h5>{displayedTask.createdAt}</h5>
+            <p>{displayedTask.description}</p>
+            <button className="tasks-delete" onClick={handleDelete}>Delete Task</button>
             <div className="task-container">
+                {displayedTask.todos.map(todo=><Task task={todo} handleRemove={handleRemove}/>)}
             </div>
         </article>
     )

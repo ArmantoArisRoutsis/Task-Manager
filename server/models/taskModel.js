@@ -7,7 +7,7 @@ const taskSchema = mongoose.Schema({
     todos: [String],
     createdAt:{
         type:Date,
-        default:new Date
+        default: new Date
     }
 })
 

@@ -1,28 +1,37 @@
-import React,{useState,useEffect} from 'react'
+import React from 'react'
 import {Container, Typography, Grow, Grid} from "@material-ui/core"
 
 import Tasks from "../tasks/Tasks"
 import Form from "../form/Form"
 import Modal from "../modal/Modal"
 import NewForm from "../form/newForm"
-import {useSelector} from "react-redux"
+import {useSelector,useDispatch} from "react-redux"
+import {deleteTask,getTasks} from "../../actions/tasks"
 
 
 const HomePage = ({displayedTask,setDisplayedTask}) => {
+    const dispatch = useDispatch()
 
     const tasks = useSelector(state => state.tasks)
+
+    // const tasks = useSelector(state => state.tasks)
+    const handleDelete=()=>{
+        if(tasks){
+            setDisplayedTask(tasks[0])
+        }else{
+            setDisplayedTask(null)
+        }
+        
+        dispatch(deleteTask(displayedTask))
+    }
     
 
     return (
-    <> 
+    displayedTask&&<> 
         <Container maxWidth="lg" style={{marginLeft:"400px"}}>
             <Grow in>
             <div>
-                <p>Created at {displayedTask.createdAt}</p>
-                <h1>{displayedTask.title}</h1>
-                <h2>{displayedTask.description}</h2>
-                <h3>To do</h3>
-                {displayedTask.todos.map(todo=>(<p>{todo}</p>))}
+                <Tasks displayedTask={displayedTask} setDisplayedTask={setDisplayedTask} handleDelete={handleDelete}/>
                 <NewForm displayedTask={displayedTask} setDisplayedTask={setDisplayedTask}/>
             </div>
             </Grow>

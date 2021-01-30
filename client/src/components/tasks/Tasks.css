@@ -1,0 +1,12 @@
+.tasks-delete{
+    background-color: rgb(202, 76, 53);
+    padding: 5px 10px;
+    color: white;
+    border:none;
+    margin-bottom: 25px;
+    transition: background-color 0.5s;
+}
+
+.tasks-delete:hover {
+    background-color: rgb(175, 33, 8);
+}

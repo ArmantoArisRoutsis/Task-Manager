@@ -1,0 +1,30 @@
+.task-box{
+    display: flex;
+    width: 400px;
+    
+}
+.task-box button{
+    background-color:  rgb(212, 92, 36);
+    color: white;
+    font-weight: bold;
+    border: none;
+    margin: 10px;
+    margin-top: 20px;
+    height: 30px;
+    border-radius: 25%;
+    transition: background-color 0.3s;
+}
+
+.task-box button:hover{
+    background-color: rgb(218, 28, 22);
+}
+
+.task-box p{
+    text-align: center;
+    border: rgb(116, 42, 158) 3px solid;
+    color: rgb(116, 42, 158);
+    width: 300px;
+    padding: 10px;
+    font-weight: bold;
+    border-radius: 5px;
+}
