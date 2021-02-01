@@ -2,6 +2,7 @@ import React,{useState,useEffect} from 'react'
 import {TextField, Button, Typography, Paper} from "@material-ui/core"
 import {useDispatch} from "react-redux"
 import {updateTask} from "../../actions/tasks"
+import "./newForm.css"
 
 const Form = ({displayedTask, setDisplayedTask}) => {
     const [taskData, setTaskData] = useState({
@@ -31,8 +32,8 @@ const Form = ({displayedTask, setDisplayedTask}) => {
             <TextField name="taskTitle" variant="outlined" label="Title" fullWidth value={taskData.title} onChange={(e)=>setTaskData({...taskData,title:e.target.value})}/>
             <TextField name="taskDescription" variant="outlined" label="Description" fullWidth value={taskData.description} onChange={(e)=>setTaskData({...taskData,description:e.target.value})}/> */}
                 <div style={{width:"400px"}}>
-                <TextField name="taskItem" variant="outlined" label={`Add a new todo for "${displayedTask.title}"`} fullWidth value={newItem} onChange={(e)=>setNewItem(e.target.value)}/>
-                <Button variant="contained" color="primary" size="lg" type="submit" fullWidth>Add</Button>
+                <TextField className="text-field" name="taskItem" variant="filled" label={`Add a new todo for "${displayedTask.title}"`} fullWidth value={newItem} onChange={(e)=>setNewItem(e.target.value)}/>
+                <Button  variant="contained" color="primary" size="lg" type="submit" fullWidth>Add</Button>
                 </div>
            </form>
     )

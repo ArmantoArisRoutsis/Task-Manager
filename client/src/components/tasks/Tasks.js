@@ -26,7 +26,7 @@ const Tasks = ({displayedTask,setDisplayedTask, handleDelete}) => {
             <h5>{displayedTask.createdAt}</h5>
             <p>{displayedTask.description}</p>
             <button className="tasks-delete" onClick={handleDelete}>Delete Task</button>
-            <div className="task-container">
+            <div className="sub-task-container">
                 {displayedTask.todos.map(todo=><Task task={todo} handleRemove={handleRemove}/>)}
             </div>
         </article>

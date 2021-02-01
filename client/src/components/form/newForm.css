@@ -1,0 +1,6 @@
+.text-field{
+    background-color: rgba(255, 255, 255,0.85);
+    border-radius: 5px;
+    margin-bottom: 10px;
+    transition: translateY 0.3s;
+}

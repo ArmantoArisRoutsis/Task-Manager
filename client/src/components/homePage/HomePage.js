@@ -8,6 +8,8 @@ import NewForm from "../form/newForm"
 import {useSelector,useDispatch} from "react-redux"
 import {deleteTask,getTasks} from "../../actions/tasks"
 
+import "./HomePage.css"
+
 
 const HomePage = ({displayedTask,setDisplayedTask}) => {
     const dispatch = useDispatch()
@@ -28,9 +30,9 @@ const HomePage = ({displayedTask,setDisplayedTask}) => {
 
     return (
     displayedTask&&<> 
-        <Container maxWidth="lg" style={{marginLeft:"400px"}}>
+        <Container maxWidth="lg" style={{marginLeft:"0px"}}>
             <Grow in>
-            <div>
+            <div className="task-container">
                 <Tasks displayedTask={displayedTask} setDisplayedTask={setDisplayedTask} handleDelete={handleDelete}/>
                 <NewForm displayedTask={displayedTask} setDisplayedTask={setDisplayedTask}/>
             </div>
