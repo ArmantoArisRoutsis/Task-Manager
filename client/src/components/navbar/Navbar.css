@@ -36,8 +36,20 @@
     border-radius: 5px;
     transition: background-color 0.5s, color 0.3s, font-weight 0.3s;
     cursor: pointer;
+    animation: new-task-animation;
+    animation-duration: 0.3s;
 }
 
+@keyframes new-task-animation{
+    0%{
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
 
 .nav-container li:hover{
     background-color: white;

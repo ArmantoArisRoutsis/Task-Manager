@@ -3,6 +3,7 @@ import {Link} from "react-router-dom"
 import "./Navbar.css"
 import {useSelector} from "react-redux"
 import Modal from "../modal/Modal"
+import Backdrop from "../backdrop/Backdrop"
 
 const Navbar = ({showModal, setShowModal, setDisplayedTask}) => {
 
@@ -22,6 +23,7 @@ const Navbar = ({showModal, setShowModal, setDisplayedTask}) => {
                 </ul>}
                 <a className="create-new-task-btn" href="" onClick={createNewTask}>Create A New Task</a>
             </div>
+            {showModal&&<Backdrop onClick={()=>setShowModal(false)}/>}
             {showModal&&<Modal setShowModal={setShowModal}/>}
         </>
     )
